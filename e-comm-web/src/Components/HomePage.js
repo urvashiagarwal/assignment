@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 export const HomePage = () => {
     const [productData, setProductData] = useState([]);
@@ -141,7 +141,7 @@ export const HomePage = () => {
         <div className='container-fluid' style={{ backgroundColor: "rgb(241 221 239)" }} >
             <div className='row' style={{ paddingBottom: "20px", backgroundColor: "rgb(2 25 60)", padding: "20px" }}>
                 <div className='col-lg-2'>
-                    <h1 style={{ color: "white", paddingLeft: "20px" }}>E-Shopy</h1>
+                    <h1 style={{ color: "white", paddingLeft: "20px" }}>EShopy</h1>
                 </div>
                 <div className='col-lg-6 d-flex justify-content-center pt-2'>
                     <div className='search-bar'  >
@@ -150,9 +150,11 @@ export const HomePage = () => {
                             placeholder='Search by product name'
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            style={{ width: "300px", height: "40px", borderRadius: "30px 0px 0px 30px", border: "none", padding: "10px", color: "#000000", fontWeight: "600" }}
+                            style={{ width: "350px", height: "40px", borderRadius: "10px 0px 0px 10px", padding: "10px",border:"none", color: "#000000", fontWeight: "600" }}
                         />
-                        <button onClick={handleSearch} style={{ height: "44px", width: "100px", borderRadius: "30px", marginLeft: "-40px", border: "2px solid rgb(2 25 60)", color: "#000000", fontWeight: "600", fontSize: "18px" }}>Search</button>
+                        <button onClick={handleSearch} style={{ height: "40px", width: "60px", borderRadius: "0px 10px 10px 0px", border:"none", color: "#000000", fontWeight: "600", fontSize: "18px" }}>
+                            <FontAwesomeIcon icon={faSearch}/>
+                        </button>
                     </div>
                 </div>
                 <div className='col-lg-4'>
