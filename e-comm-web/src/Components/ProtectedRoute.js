@@ -9,7 +9,7 @@ const ProtectedRoute = ({ children }) => {
         const loginUser = localStorage.getItem('authToken');
 
         if (!loginUser) {
-            navigate('/login');
+            navigate('/');
         }
     }, [navigate]);
 

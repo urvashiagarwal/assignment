@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
-export const Home = () => {
+export const HomePage = () => {
     const [productData, setProductData] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [status, setStatus] = useState(false);
@@ -10,7 +10,7 @@ export const Home = () => {
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
     const [cart, setCart] = useState([]);
- 
+
 
     useEffect(() => {
         const productApiData = async () => {
@@ -76,14 +76,14 @@ export const Home = () => {
         setFilteredProducts(filtered);
     };
 
-    const[users, setUsers] = useState();
+    const [users, setUsers] = useState();
 
-    useEffect(()=>{
+    useEffect(() => {
         const getUserInfo = async () => {
-            try{
+            try {
                 const userInfo = await fetch('https://dummyjson.com/users')
-                   setUsers(userInfo);
-            } catch (error){
+                setUsers(userInfo);
+            } catch (error) {
                 console.log('Error fetching user info:', error);
             }
         };
@@ -99,10 +99,10 @@ export const Home = () => {
 
     const addToCart = (productId) => {
 
-if(!users){
-    console.log('User info is not available');
-    return;
-}
+        if (!users) {
+            console.log('User info is not available');
+            return;
+        }
 
         fetch('https://dummyjson.com/carts/add', {
             method: 'POST',
@@ -134,10 +134,7 @@ if(!users){
 
     // Calculate cart count and total amount
     const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
-    const totalAmount = cart.reduce((total, item) => {
-        const product = productData.find((p) => p.id === item.id);
-        return total + product.price * item.quantity;
-    }, 0);
+
 
 
     return (
@@ -160,10 +157,10 @@ if(!users){
                 </div>
                 <div className='col-lg-4'>
                     {/* Shopping Cart Section */}
-                    <div style={{display:"flex", color: 'white', justifyContent:"center" }}>
-                        <FontAwesomeIcon icon={faShoppingCart} style={{height:"30px", width:"40px", marginTop:"20px"}}/>
-                        <p style={{ backgroundColor: "white", borderRadius: "50%", width: "22px", height: "22px", color:"rgb(2 25 60)", textAlign:"center",fontSize:"15px", fontWeight:"bold", marginTop:"3px", marginLeft:"-9px"}}>{cartCount} </p>
-                      
+                    <div style={{ display: "flex", color: 'white', justifyContent: "center" }}>
+                        <FontAwesomeIcon icon={faShoppingCart} style={{ height: "30px", width: "40px", marginTop: "20px" }} />
+                        <p style={{ backgroundColor: "white", borderRadius: "50%", width: "22px", height: "22px", color: "rgb(2 25 60)", textAlign: "center", fontSize: "15px", fontWeight: "bold", marginTop: "3px", marginLeft: "-9px" }}>{cartCount} </p>
+
                     </div>
                 </div>
             </div>
@@ -174,22 +171,22 @@ if(!users){
                     </h3>
                 </div>
                 <div className='col-lg-4'>
-                    <div className='price-filter' style={{float:"right"}}>
+                    <div className='price-filter' style={{ float: "right" }}>
                         <input
                             type='number'
                             placeholder='Min Price'
                             value={minPrice}
                             onChange={(e) => setMinPrice(e.target.value)}
-                            style={{width:"130px"}}
+                            style={{ width: "130px" }}
                         />
                         <input
                             type='number'
                             placeholder='Max Price'
                             value={maxPrice}
                             onChange={(e) => setMaxPrice(e.target.value)}
-                            style={{width:"130px"}}
+                            style={{ width: "130px" }}
                         />
-                        <button onClick={handleFilterByPrice} style={{borderRadius:"5px", fontSize:"18px"}}>Filter</button>
+                        <button onClick={handleFilterByPrice} style={{ borderRadius: "5px", fontSize: "18px" }}>Filter</button>
                     </div>
 
                 </div>
@@ -202,12 +199,12 @@ if(!users){
                         filteredProducts.map((item, i) => (
                             <div className='col-lg-4 d-flex justify-content-center' key={i}>
                                 {/* Assume 'images', 'title', 'brand', 'description', 'price', 'rating' are properties in your product data */}
-                                <div className='p-2 product-card' style={{ width: "400px", height: "540px", margin: "20px", borderRadius: "5px", border: "2px solid rgb(206, 201, 201)", color: "#000000" }}>
+                                <div className='p-2 product-card' style={{ width: "400px", height: "580px", margin: "20px", borderRadius: "5px", border: "2px solid rgb(206, 201, 201)", color: "#000000" }}>
                                     <div style={{ height: "300px", textAlign: "center" }}>
                                         <img src={item.images[0]} alt={item.title} style={{ width: "100%", height: "100%", borderRadius: "5px" }} />
                                     </div>
 
-                                    <div style={{ height:"100px", paddingTop: "8px" }}>
+                                    <div style={{ height: "100px", paddingTop: "8px" }}>
                                         <h3 style={{ fontSize: "20px", lineHeight: "20px", fontWeight: "bold" }}>{item.title}</h3>
                                         <p style={{ fontSize: "16px", lineHeight: "16px", fontWeight: "600" }}>{item.brand}</p>
                                     </div>
@@ -219,10 +216,10 @@ if(!users){
                                         <p style={{ float: "left", fontWeight: "bold" }}>Price: Rs.{item.price}</p>
                                         <p style={{ float: "right" }}>Ratings: {item.rating}</p>
                                     </div>
-                                    <div className='product-card-button' style={{ paddingLeft: "15px" }}>
+                                    <div className='product-card-button' style={{ padding: "20px", textAlign: "center" }}>
                                         <button
                                             className='bn btn'
-                                            style={{ backgroundColor: "rgb(2 25 60)", textAlign: "center", width: "350px", height: "40px", color: "white", fontWeight: "bold" }}
+                                            style={{ backgroundColor: "rgb(2 25 60)", textAlign: "center", width: "150px", height: "40px", color: "white", fontWeight: "bold" }}
                                             onClick={() => {
                                                 addToCart(item.id);
                                             }}

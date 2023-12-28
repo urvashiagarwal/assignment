@@ -48,9 +48,9 @@ export const Login = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.token) {
-                    // alert("Login successfully");
+                    alert("Login successfully");
                     localStorage.setItem('authToken', data.token);
-                    navigate('/')
+                    navigate('/homepage*/')
                     setErrors({});
                     setIsValid(true);
                 } else {

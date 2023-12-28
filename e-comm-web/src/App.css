@@ -44,7 +44,7 @@
 }
 
 .product-card-button:hover {
-  transform: rotate(1.5deg) translateY(2px);
+transform: scaleX(1.05);
 }
 
 .popup {
