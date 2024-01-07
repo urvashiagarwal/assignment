@@ -140,24 +140,24 @@ export const HomePage = () => {
     return (
         <div className='container-fluid' style={{ backgroundColor: "rgb(241 221 239)" }} >
             <div className='row' style={{ paddingBottom: "20px", backgroundColor: "rgb(2 25 60)", padding: "20px" }}>
-                <div className='col-lg-2'>
-                    <h1 style={{ color: "white", paddingLeft: "20px" }}>EShopy</h1>
+                <div className='col-lg-2 col-md-2 col-sm-12'>
+                    <h1 style={{ color: "white", paddingLeft: "20px", textAlign: "center" }}>EShopy</h1>
                 </div>
-                <div className='col-lg-6 d-flex justify-content-center pt-2'>
+                <div className='col-lg-6 col-md-8 col-sm-12 d-flex justify-content-center pt-2'>
                     <div className='search-bar'  >
                         <input
                             type='text'
                             placeholder='Search by product name'
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            style={{ width: "350px", height: "40px", borderRadius: "10px 0px 0px 10px", padding: "10px",border:"none", color: "#000000", fontWeight: "600" }}
+                            style={{ width: "350px", height: "40px", borderRadius: "10px 0px 0px 10px", padding: "10px", border: "none", color: "#000000", fontWeight: "600" }}
                         />
-                        <button onClick={handleSearch} style={{ height: "40px", width: "60px", borderRadius: "0px 10px 10px 0px", border:"none", color: "#000000", fontWeight: "600", fontSize: "18px" }}>
-                            <FontAwesomeIcon icon={faSearch}/>
+                        <button onClick={handleSearch} style={{ height: "40px", width: "60px", borderRadius: "0px 10px 10px 0px", border: "none", color: "#000000", fontWeight: "600", fontSize: "18px" }}>
+                            <FontAwesomeIcon icon={faSearch} />
                         </button>
                     </div>
                 </div>
-                <div className='col-lg-4'>
+                <div className='col-lg-4 col-md-2 col-sm-12'>
                     {/* Shopping Cart Section */}
                     <div style={{ display: "flex", color: 'white', justifyContent: "center" }}>
                         <FontAwesomeIcon icon={faShoppingCart} style={{ height: "30px", width: "40px", marginTop: "20px" }} />
@@ -167,12 +167,12 @@ export const HomePage = () => {
                 </div>
             </div>
             <div className='row' style={{ padding: "30px 30px 0px 40px" }}>
-                <div className='col-lg-8'>
+                <div className='col-lg-6 col-md-4 col-sm-12 col-12'>
                     <h3 style={{ fontWeight: "600", color: "#000000" }}>
                         {searchTerm ? `Searched Products (${filteredProducts.length})` : 'All Products'}
                     </h3>
                 </div>
-                <div className='col-lg-4'>
+                <div className='col-lg-6 col-md-8 col-sm-12 col-12'>
                     <div className='price-filter' style={{ float: "right" }}>
                         <input
                             type='number'
@@ -199,7 +199,7 @@ export const HomePage = () => {
                 <div className='row' style={{ padding: "20px 50px" }}>
                     {filteredProducts.length > 0 ? (
                         filteredProducts.map((item, i) => (
-                            <div className='col-lg-4 d-flex justify-content-center' key={i}>
+                            <div className='col-lg-4 col-md-4 col-sm-6 d-flex justify-content-center' key={i}>
                                 {/* Assume 'images', 'title', 'brand', 'description', 'price', 'rating' are properties in your product data */}
                                 <div className='p-2 product-card' style={{ width: "400px", height: "580px", margin: "20px", borderRadius: "5px", border: "2px solid rgb(206, 201, 201)", color: "#000000" }}>
                                     <div style={{ height: "300px", textAlign: "center" }}>
